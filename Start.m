@@ -3,7 +3,7 @@ close all
 clc
 tic;
 %% Variale initializing
-global widthy 
+global widthy
 global lengthy
 widthy = 5;
 lengthy = 5;
