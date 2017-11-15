@@ -6,7 +6,7 @@ tic;
 global widthy
 global lengthy
 widthy = 5;
-lengthy = 5;
+lengthy = 7;
 
 mainCell = cell(widthy,lengthy); %Preallocate for speed
 z = zeros(widthy,lengthy);
