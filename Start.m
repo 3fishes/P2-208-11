@@ -5,8 +5,9 @@ tic;
 %% Variale initializing
 global widthy
 global lengthy
-widthy = 5;
-lengthy = 5;
+%% ARENA DIMENSIONS
+widthy = 5;  %width of the arena
+lengthy = 5; %length of the arena
 
 mainCell = cell(widthy,lengthy); %Preallocate for speed
 z = zeros(widthy,lengthy);
