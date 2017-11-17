@@ -3,18 +3,18 @@ close all;
 clc;
 tic;
 %% Variale initializing
-global widthy
-global lengthy
+global rows
+global cols
 
 %% ARENA DIMENSIONS
-widthy = 5;  %width of the arena
-lengthy = 5; %length of the arena
+rows = 5;  %width of the arena
+cols = 7; %length of the arena
 
-mainCell = cell(widthy,lengthy); %Preallocate for speed
-z = zeros(widthy,lengthy);
+mainCell = cell(rows,cols); %Preallocate for speed
+z = zeros(rows,cols);
 %% filling cells
-for i=1:widthy
-    for j = 1:lengthy
+for i=1:rows
+    for j = 1:cols
     struct.convinced = rand*100;
     struct.A = rand;
     struct.B = rand;
@@ -26,7 +26,7 @@ end
 summed = 0;
 %% plotting
 surf(z);
-avg = summed /(lengthy*widthy);
+avg = summed /(cols*rows);
 [summed, avg] = plotter(mainCell);
 
 %% ALGORITHMS 
