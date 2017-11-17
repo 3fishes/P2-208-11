@@ -1,6 +1,6 @@
-clear all
-close all
-clc
+clear all;
+close all;
+clc;
 tic;
 %% Variale initializing
 global widthy
@@ -9,8 +9,6 @@ global lengthy
 %% ARENA DIMENSIONS
 widthy = 5;  %width of the arena
 lengthy = 5; %length of the arena
-widthy = 5;
-lengthy = 7;
 
 mainCell = cell(widthy,lengthy); %Preallocate for speed
 z = zeros(widthy,lengthy);
@@ -33,7 +31,7 @@ avg = summed /(lengthy*widthy);
 
 %% ALGORITHMS 
 % - FINDING GROUP LOW
-radius_influence = 1; %
+
 
 
 
