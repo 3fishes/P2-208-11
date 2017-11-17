@@ -8,6 +8,7 @@ global cols;  %cols in node matrix
 rows = 5;
 cols = 5;
 node = struct;
+next = zeros(rows,cols);
 z = zeros(rows,cols);
 %% POPULATING NODES WITH RANDOM VALUES
 for i = 1: rows
@@ -22,7 +23,6 @@ t = 1;
 
 %% ITERATING THROUGH
 while(t<iterations) %fix number of refresh numbers
-    next = zeros(rows,cols); %initialize next
 for plcrows = 1 : rows   %current node position
     summed = 0;
     for plccols = 1: cols
@@ -55,12 +55,12 @@ for plcrows = 1 : rows   %current node position
     end %plccols
 end %plcrows
 myplotter(next); %send to plot
-blk = size(next); % acess size of array
+blk = size(next); 
 for h = 1:blk(1)
     for k = 1:blk(2)
-        maincell(h,k).opin = next(h,k); %populate maincell.opin with new results
+        maincell(h,k).opin = next(h,k);
     end
 end
-t = t +1; %increment time
+t = t +1;
 end % iterations
         
