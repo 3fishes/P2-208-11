@@ -1,4 +1,4 @@
-function myplotter(struct)
+function z = myplotter(struct)
 dims = size(struct);
 for i = 1:dims(1)
     for j = 1:dims(2)
@@ -7,6 +7,5 @@ for i = 1:dims(1)
 end
 figure(1)
 surf(z);
-axis([0 5 0 5 0 105]);
 waitforbuttonpress;
 end

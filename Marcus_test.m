@@ -8,11 +8,10 @@ global cols;  %cols in node matrix
 rows = 5;
 cols = 5;
 node = struct;
-z = zeros(rows,cols);
 %% POPULATING NODES WITH RANDOM VALUES
 for i = 1: rows
     for j = 1 : cols
-        node.stub = rand;
+        node.stub = 0.3+.7*rand;
         node.opin = rand*100;
         node.agents = rand(1,3);
         maincell(i,j) = node;
@@ -54,7 +53,7 @@ for plcrows = 1 : rows   %current node position
            next(plcrows,plccols) = summed+maincell(plcrows,plccols).opin;
     end %plccols
 end %plcrows
-myplotter(next); %send to plot
+z = myplotter(next); %send to plot
 blk = size(next); % acess size of array
 for h = 1:blk(1)
     for k = 1:blk(2)
