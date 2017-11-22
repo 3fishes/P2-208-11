@@ -12,5 +12,7 @@ end
 surf(z);
 axis([1 cols 1 rows 0 100]);
 avg = summed /(rows*cols);
+%colorbar;
+%view(2);
 waitforbuttonpress;
 end

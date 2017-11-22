@@ -6,9 +6,10 @@ iterations = 1000; % fix this for simulation phases
 global rows;  % rows in node matrix
 global cols;  %cols in node matrix
 rows = 25;
-cols = 5;
+cols = 25;
 node = struct;
 
+mainCell = cell(rows,cols); %Preallocate for speed
 %% POPULATING NODES WITH RANDOM VALUES
 for i = 1: rows
     for j = 1 : cols
