@@ -11,6 +11,7 @@ end
 %% plotting
 surf(z);
 axis([1 cols 1 rows 0 100]);
+view(2);
 avg = summed /(rows*cols);
 %colorbar;
 %view(2);
