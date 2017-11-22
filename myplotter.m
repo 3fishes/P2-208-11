@@ -10,6 +10,7 @@ end
 figure(1)
 surf(z);
 axis([1 cols 1 rows 0 100]);
+view(2);
 h = waitforbuttonpress;
 
 end
