@@ -6,7 +6,7 @@ iterations = 1000; % fix this for simulation phases
 global rows;  % rows in node matrix
 global cols;  %cols in node matrix
 rows = 25;
-cols = 5;
+cols = 25;
 node = struct;
 
 %% POPULATING NODES WITH RANDOM VALUES
