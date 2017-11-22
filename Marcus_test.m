@@ -5,9 +5,10 @@ iterations = 1000; % fix this for simulation phases
 
 global rows;  % rows in node matrix
 global cols;  %cols in node matrix
-rows = 5;
+rows = 25;
 cols = 5;
 node = struct;
+
 %% POPULATING NODES WITH RANDOM VALUES
 for i = 1: rows
     for j = 1 : cols
@@ -18,7 +19,7 @@ for i = 1: rows
     end
 end
 t = 1;
-
+plotter(maincell);
 %% ITERATING THROUGH
 while(t<iterations) %fix number of refresh numbers
     next = zeros(rows,cols); %initialize next
@@ -53,7 +54,7 @@ for plcrows = 1 : rows   %current node position
            next(plcrows,plccols) = summed+maincell(plcrows,plccols).opin;
     end %plccols
 end %plcrows
-z = myplotter(next); %send to plot
+[z,out] = myplotter(next); %send to plot
 blk = size(next); % acess size of array
 for h = 1:blk(1)
     for k = 1:blk(2)
@@ -61,5 +62,9 @@ for h = 1:blk(1)
     end
 end
 t = t +1; %increment time
-end % iterations
+if out == 0
+    break
+end
+end %t iterations
+close all
         
