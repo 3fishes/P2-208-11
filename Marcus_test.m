@@ -48,5 +48,4 @@ function [next] = Marcus_test(maingrid,arow,acol)
             maingrid(h,k).opin = next(h,k); %populate maincell.opin with new results
         end
     end
-    close all
 end % func
