@@ -1,4 +1,4 @@
-function [next] = Marcus_test(maincell)
+function [maincell] = Marcus_test(maincell)
 global rows;  % rows in node matrix
 global cols;  % cols in node matrix
 global cols;  %cols in node matrix
