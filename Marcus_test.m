@@ -1,19 +1,15 @@
-<<<<<<< HEAD
 function [next] = Marcus_test(maincell,arow,acol)
-=======
-function [maincell] = Marcus_test(maincell)
->>>>>>> bd4fc43fc0ff80e249c7f5a87ab1751e0cd81cdf
-global rows;  % rows in node matrix
-global cols;  % cols in node matrix
+    global rows;  % rows in node matrix
+    global cols;  % cols in node matrix
 
-%% ITERATING THROUGH
-next = zeros(rows,cols); %initialize next
-next = maincell.opin;
-for ee = 1:rows
-    for eee = 1:cols
-        next(ee,eee) = maincell(ee,eee).opin;
+    %% ITERATING THROUGH
+    next = zeros(rows,cols); %initialize next
+    next = maincell.opin;
+    for ee = 1:rows
+        for eee = 1:cols
+            next(ee,eee) = maincell(ee,eee).opin;
+        end
     end
-end
     actrows = 1 : rows;
     actrows = actrows(actrows ~= arow);
     for r = 1 : length(actrows)   
@@ -45,7 +41,7 @@ end
             end %u
             for v = 1:length(j) %cols
                  commonfact = 1-(sum(abs(maincell(plcrows,plccols).agents-maincell(plcrows,j(v)).agents)))/3;
-                 val = maincell(plcrows,plccols).stub*((maincell(plcrows,plccols).opin + maincell(plcrows,j(v)).opin)/2 - maincell(plcrows,plccols).opin);
+                 val = commonfact*maincell(plcrows,plccols).stub*((maincell(plcrows,plccols).opin + maincell(plcrows,j(v)).opin)/2 - maincell(plcrows,plccols).opin);
                  summed = (summed + val)/length(j);
             end %v
                next(plcrows,plccols) = summed+maincell(plcrows,plccols).opin;
