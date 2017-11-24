@@ -1,4 +1,4 @@
-function [z,h]= myplotter(struct)
+function myplotter(struct)
 global rows;
 global cols;
 dims = size(struct);
@@ -10,7 +10,6 @@ end
 figure(1)
 surf(z);
 axis([1 cols 1 rows 0 100]);
-view(2);
 h = waitforbuttonpress;
 
 end

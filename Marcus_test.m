@@ -1,27 +1,7 @@
-close all;
-clear all;
-clc
-iterations = 1000; % fix this for simulation phases
-
+function [next] = Marcus_test(maincell)
 global rows;  % rows in node matrix
-global cols;  %cols in node matrix
-rows = 25;
-cols = 25;
-node = struct;
-
-%% POPULATING NODES WITH RANDOM VALUES
-for i = 1: rows
-    for j = 1 : cols
-        node.stub = 0.3+.7*rand;
-        node.opin = rand*100;
-        node.agents = rand(1,3);
-        maincell(i,j) = node;
-    end
-end
-t = 1;
-plotter(maincell);
+global cols;  % cols in node matrix
 %% ITERATING THROUGH
-while(t<iterations) %fix number of refresh numbers
     next = zeros(rows,cols); %initialize next
 for plcrows = 1 : rows   %current node position
     summed = 0;
@@ -54,17 +34,12 @@ for plcrows = 1 : rows   %current node position
            next(plcrows,plccols) = summed+maincell(plcrows,plccols).opin;
     end %plccols
 end %plcrows
-[z,out] = myplotter(next); %send to plot
+myplotter(next); %send to plot
 blk = size(next); % acess size of array
 for h = 1:blk(1)
     for k = 1:blk(2)
         maincell(h,k).opin = next(h,k); %populate maincell.opin with new results
     end
 end
-t = t +1; %increment time
-if out == 0
-    break
-end
-end %t iterations
 close all
-        
+end % func
