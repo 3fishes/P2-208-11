@@ -3,13 +3,7 @@ function [next] = Marcus_test(maincell,arow,acol)
     global cols;  % cols in node matrix
 
     %% ITERATING THROUGH
-    next = zeros(rows,cols); %initialize next
     next = maincell.opin;
-    for ee = 1:rows
-        for eee = 1:cols
-            next(ee,eee) = maincell(ee,eee).opin;
-        end
-    end
     actrows = 1 : rows;
     actrows = actrows(actrows ~= arow);
     for r = 1 : length(actrows)   
