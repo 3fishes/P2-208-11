@@ -10,6 +10,4 @@ for i = 1: rows
         maincell(i,j) = node;
     end
 end
-while (true)
-maincell = my_test(maincell,5);
-end
+Marcus_test(maincell, 1,1)
