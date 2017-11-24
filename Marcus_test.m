@@ -1,19 +1,12 @@
-function [next] = Marcus_test(maingrid,arow,acol)
+function [maingrid] = Marcus_test(maingrid,arow,acol)
     global rows;  % rows in node matrix
     global cols;  % cols in node matrix
 
     %% ITERATING THROUGH
     next = maingrid.opin;
-    actrows = 1 : rows;
-    actrows = actrows(actrows ~= arow);
-    for r = 1 : length(actrows)   
-        plcrows = actrows(r);   %current node row
+    for plcrows = 1 : rows  
         summed = 0;
-        actcols = 1 : rows;
-        actcols = actcols(actcols ~= acol);
-        for c = 1: length(actcols)
-            plccols = actcols(c);   %current node col
-            %% Deal with boundary cases
+        for plccols = 1: cols            %% Deal with boundary cases
             i = [plcrows-1 plcrows+1];
             j = [plccols-1 plccols+1];
             i = i(i < rows);
@@ -23,6 +16,9 @@ function [next] = Marcus_test(maingrid,arow,acol)
             % Below for loops act on above, below ,left and right nodes to find
             % their effect on central node
             for u = 1:length(i) %rows
+                if (i(u) == arow && acol == plccols) 
+                    break
+                end
                 % find their agreement coefficient
                 commonfact = 1-(sum(abs(maingrid(plcrows,plccols).agents-maingrid(i(u),plccols).agents)))/3;
                 % complicated algorithm
@@ -34,6 +30,9 @@ function [next] = Marcus_test(maingrid,arow,acol)
                 summed = (summed + val)/length(i);
             end %u
             for v = 1:length(j) %cols
+                if (acol == j(v) && arow == plcrows)
+                    break
+                end
                  commonfact = 1-(sum(abs(maingrid(plcrows,plccols).agents-maingrid(plcrows,j(v)).agents)))/3;
                  val = commonfact*maingrid(plcrows,plccols).stub*((maingrid(plcrows,plccols).opin + maingrid(plcrows,j(v)).opin)/2 - maingrid(plcrows,plccols).opin);
                  summed = (summed + val)/length(j);
