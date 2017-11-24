@@ -18,4 +18,9 @@ for i = 1: rows
         maingrid(i,j) = node;
     end
 end
-Marcus_test(maingrid, 1,1)
+
+plotter(maingrid);
+Marcus_test(maingrid, 1,2)
+Marcus_test(maingrid, 1,2)
+Marcus_test(maingrid, 1,2)
+Marcus_test(maingrid, 1,2)

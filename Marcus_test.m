@@ -4,15 +4,9 @@ function [next] = Marcus_test(maingrid,arow,acol)
 
     %% ITERATING THROUGH
     next = maingrid.opin;
-    actrows = 1 : rows;
-    actrows = actrows(actrows ~= arow);
-    for r = 1 : length(actrows)   
-        plcrows = actrows(r);   %current node row
+    for plcrows = 1 : rows   
         summed = 0;
-        actcols = 1 : rows;
-        actcols = actcols(actcols ~= acol);
-        for c = 1: length(actcols)
-            plccols = actcols(c);   %current node col
+        for plccols = 1: cols
             %% Deal with boundary cases
             i = [plcrows-1 plcrows+1];
             j = [plccols-1 plccols+1];
@@ -22,6 +16,7 @@ function [next] = Marcus_test(maingrid,arow,acol)
             j = j(j ~= 0);
             % Below for loops act on above, below ,left and right nodes to find
             % their effect on central node
+            
             for u = 1:length(i) %rows
                 % find their agreement coefficient
                 commonfact = 1-(sum(abs(maingrid(plcrows,plccols).agents-maingrid(i(u),plccols).agents)))/3;
@@ -45,7 +40,10 @@ function [next] = Marcus_test(maingrid,arow,acol)
     blk = size(next); % acess size of array
     for h = 1:blk(1)
         for k = 1:blk(2)
-            maingrid(h,k).opin = next(h,k); %populate maincell.opin with new results
+            %Don't update the person that the agent is at
+            if(h ~= arow) && (i ~= acol)
+                maingrid(h,k).opin = next(h,k); %populate maincell.opin with new results
+            end
         end
     end
 end % func
