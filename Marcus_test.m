@@ -1,9 +1,9 @@
-function [next] = Marcus_test(maincell,arow,acol)
+function [next] = Marcus_test(maingrid,arow,acol)
     global rows;  % rows in node matrix
     global cols;  % cols in node matrix
 
     %% ITERATING THROUGH
-    next = maincell.opin;
+    next = maingrid.opin;
     actrows = 1 : rows;
     actrows = actrows(actrows ~= arow);
     for r = 1 : length(actrows)   
@@ -24,9 +24,9 @@ function [next] = Marcus_test(maincell,arow,acol)
             % their effect on central node
             for u = 1:length(i) %rows
                 % find their agreement coefficient
-                commonfact = 1-(sum(abs(maincell(plcrows,plccols).agents-maincell(i(u),plccols).agents)))/3;
+                commonfact = 1-(sum(abs(maingrid(plcrows,plccols).agents-maingrid(i(u),plccols).agents)))/3;
                 % complicated algorithm
-                val = commonfact*maincell(plcrows,plccols).stub*((maincell(plcrows,plccols).opin + maincell(i(u),plccols).opin)/2 - maincell(plcrows,plccols).opin);
+                val = commonfact*maingrid(plcrows,plccols).stub*((maingrid(plcrows,plccols).opin + maingrid(i(u),plccols).opin)/2 - maingrid(plcrows,plccols).opin);
                 % collect the sum effect of each node on the central node
                 % divide by length of i because edge cases only have one
                 % effecting node vs regular case has 2
@@ -34,18 +34,18 @@ function [next] = Marcus_test(maincell,arow,acol)
                 summed = (summed + val)/length(i);
             end %u
             for v = 1:length(j) %cols
-                 commonfact = 1-(sum(abs(maincell(plcrows,plccols).agents-maincell(plcrows,j(v)).agents)))/3;
-                 val = commonfact*maincell(plcrows,plccols).stub*((maincell(plcrows,plccols).opin + maincell(plcrows,j(v)).opin)/2 - maincell(plcrows,plccols).opin);
+                 commonfact = 1-(sum(abs(maingrid(plcrows,plccols).agents-maingrid(plcrows,j(v)).agents)))/3;
+                 val = commonfact*maingrid(plcrows,plccols).stub*((maingrid(plcrows,plccols).opin + maingrid(plcrows,j(v)).opin)/2 - maingrid(plcrows,plccols).opin);
                  summed = (summed + val)/length(j);
             end %v
-               next(plcrows,plccols) = summed+maincell(plcrows,plccols).opin;
+               next(plcrows,plccols) = summed+maingrid(plcrows,plccols).opin;
         end %plccols
     end %plcrows
     myplotter(next); %send to plot
     blk = size(next); % acess size of array
     for h = 1:blk(1)
         for k = 1:blk(2)
-            maincell(h,k).opin = next(h,k); %populate maincell.opin with new results
+            maingrid(h,k).opin = next(h,k); %populate maincell.opin with new results
         end
     end
     close all
