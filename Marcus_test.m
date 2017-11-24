@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 function [next] = Marcus_test(maincell,arow,acol)
+=======
+function [maincell] = Marcus_test(maincell)
+>>>>>>> bd4fc43fc0ff80e249c7f5a87ab1751e0cd81cdf
 global rows;  % rows in node matrix
 global cols;  % cols in node matrix
 
