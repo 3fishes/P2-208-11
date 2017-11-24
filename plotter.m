@@ -1,10 +1,10 @@
-function [summed,avg] = plotter(mainCell)
+function [summed,avg] = plotter(maingrid)
 global rows
 global cols
 summed = 0;
 for i=1:rows
     for j = 1:cols
-        z(i,j) = mainCell(i,j).opin;
+        z(i,j) = maingrid(i,j).opin;
         summed = summed + z(i,j);
     end
 end
