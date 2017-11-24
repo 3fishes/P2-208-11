@@ -1,6 +1,26 @@
 function [next] = Marcus_test(maincell)
 global rows;  % rows in node matrix
+<<<<<<< HEAD
 global cols;  % cols in node matrix
+=======
+global cols;  %cols in node matrix
+rows = 25;
+cols = 25;
+node = struct;
+
+mainCell = cell(rows,cols); %Preallocate for speed
+%% POPULATING NODES WITH RANDOM VALUES
+for i = 1: rows
+    for j = 1 : cols
+        node.stub = 0.3+.7*rand;
+        node.opin = rand*100;
+        node.agents = rand(1,3);
+        maincell(i,j) = node;
+    end
+end
+t = 1;
+plotter(maincell);
+>>>>>>> de4a64898711f9f1ae8e04af3785d8810fc5e019
 %% ITERATING THROUGH
     next = zeros(rows,cols); %initialize next
 for plcrows = 1 : rows   %current node position
