@@ -9,7 +9,6 @@ rows = 5;
 cols = 5;
 
 %% Go!
-%maingrid = zeros(rows,cols); %Preallocate for speed
 for i = 1: rows
     for j = 1 : cols
         node.stub = 0.3+.7*rand;
