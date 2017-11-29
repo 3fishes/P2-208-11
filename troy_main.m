@@ -19,7 +19,4 @@ for i = 1: rows
 end
 
 plotter(maingrid);
-Marcus_test(maingrid, 1,2)
-Marcus_test(maingrid, 1,2)
-Marcus_test(maingrid, 1,2)
-Marcus_test(maingrid, 1,2)
+Troy_test(maingrid, 1,2)
