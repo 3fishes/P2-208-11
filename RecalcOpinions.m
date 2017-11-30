@@ -1,4 +1,4 @@
-function [maingrid] = Troy_test(maingrid,arow,acol, plot)
+function [maingrid] = RecalcOpinions(maingrid,arow,acol, plot)
 global rows;  % rows in node matrix
 global cols;  % cols in node matrix
 next = zeros(rows, cols);

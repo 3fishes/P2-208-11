@@ -19,4 +19,4 @@ for i = 1: rows
 end
 
 plotter(maingrid);
-maingrid = Troy_test(maingrid, 1,2, 1);
+maingrid = RecalcOpinions(maingrid, 1,2, 1);
