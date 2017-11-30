@@ -19,4 +19,4 @@ for i = 1: rows
 end
 
 plotter(maingrid);
-Troy_test(maingrid, 1,2)
+maingrid = Troy_test(maingrid, 1,2, 1);
