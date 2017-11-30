@@ -19,4 +19,6 @@ for i = 1: rows
 end
 
 plotter(maingrid);
-maingrid = RecalcOpinions(maingrid, 1,2, 1);
+for i = 1:1000
+    maingrid = RecalcOpinions(maingrid, 1,1, 1);
+end
