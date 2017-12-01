@@ -1,13 +1,23 @@
-function [maingrid] = RecalcOpinions(maingrid,arow,acol, plot)
+function [maingrid] = RecalcOpinions(maingrid,A,plot)
 global rows;  % rows in node matrix
 global cols;  % cols in node matrix
+agentnum = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 next = zeros(rows, cols);
+%% Extract Agent Locations
+% ARRAY INDEX 1 = ROW, INDEX 2 = COL
+for i = 1:numel(fieldnames(A))
+   loc(i,1) =  A.(agentnum(i)).location_row;
+   loc(i,2) =  A.(agentnum(i)).location_col; 
+end
 %% ITERATING THROUGH
+% For Non-Agent Places
 for plcrows = 1 : rows
     summed = 0;
     for plccols = 1: cols
         %% Deal with boundary cases
-        if (plcrows == arow && plccols == acol)
+        currentloc(1) = plcrow;
+        currentloc(2) = plccol;
+        if any(isequal(currentloc, loc(:)))
             next(plcrows,plccols) = maingrid(plcrows,plccols).opin;
         else
             i = [plcrows-1 plcrows+1];
@@ -37,6 +47,15 @@ for plcrows = 1 : rows
         end
     end %plccols
 end %plcrows
+
+%Recalc the agent's talkees
+for i = 1:numel(fieldnames(A))
+    row = A.(agentnum(i)).location_row;
+    col = A.(agentnum(i)).location_col;
+    stub = maingrid(row,col).agents(i);
+    next(row,col) = stub*((100+maingrid(row,col).opin)/2 - maingrid(row,col).opin)+maingrid(row,col).opin;
+end
+
 blk = size(next); % acess size of array
 for h = 1:blk(1)
     for k = 1:blk(2)
