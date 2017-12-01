@@ -13,7 +13,7 @@ CurrentOpinion = InitialOpinion + DesiredRate*time;
 
 ActualOpinion = AVGofOpinions;
 
-if (ActualOpinion < CurrentOpinion)
+if (ActualOpinion <= CurrentOpinion)
     choice = 1;
     
 elseif(CurrentOpinion < ActualOpinion)
