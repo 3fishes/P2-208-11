@@ -26,16 +26,18 @@ InitialOpinion = averagetaker(maingrid);
 CurrentOpinion = InitialOpinion;
 Agents = createAgents(nums,InitialOpinion);
 
-
-
 plotter(maingrid);
 %% Simulate
-% for time = 0:inc:maxtime-1
-% avg = averagetaker(maingrid);
-% Decide Agent movements
-% If explore: Explore
-% If convince: Deploy
-% maingrid = RecalcOpinions(maingrid, 1,1, 1);
-% end time
+
+for time = 0:inc:maxtime-1
+    avg = averagetaker(maingrid);
+    maingrid = RecalcOpinions(maingrid, 1,1, 1);
+    choice = DecisionFunction(avg,InitialOpinion, Goal, CurrentOpinion, maxtime, time);
+    if (choice == 1)
+        Agents = scatter(Agents);
+    elseif (choice == 0)
+        Agents = agentDeploy(Agents);
+    end %end if statement
+end% end time loop
 
 
