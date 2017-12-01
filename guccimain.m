@@ -25,17 +25,14 @@ end
 InitialOpinion = averagetaker(maingrid);
 CurrentOpinion = InitialOpinion;
 Agents = createAgents(nums,InitialOpinion);
-
-
-
 plotter(maingrid);
 %% Simulate
-% for time = 0:inc:maxtime-1
-% avg = averagetaker(maingrid);
-% Decide Agent movements
-% If explore: Explore
-% If convince: Deploy
-% maingrid = RecalcOpinions(maingrid, 1,1, 1);
-% end time
+for time = 0:inc:maxtime-1
+    avg = averagetaker(maingrid);
+    %Decide Agent movements
+    %If explore: Explore
+    %If convince: Deploy
+    maingrid = RecalcOpinions(maingrid, Agents, 1);
+end %time
 
 

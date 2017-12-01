@@ -15,8 +15,8 @@ for plcrows = 1 : rows
     summed = 0;
     for plccols = 1: cols
         %% Deal with boundary cases
-        currentloc(1) = plcrow;
-        currentloc(2) = plccol;
+        currentloc(1) = plcrows;
+        currentloc(2) = plccols;
         if any(isequal(currentloc, loc(:)))
             next(plcrows,plccols) = maingrid(plcrows,plccols).opin;
         else
@@ -48,7 +48,7 @@ for plcrows = 1 : rows
     end %plccols
 end %plcrows
 
-%Recalc the agent's talkees
+%Recalc the agents' talkees
 for i = 1:numel(fieldnames(A))
     row = A.(agentnum(i)).location_row;
     col = A.(agentnum(i)).location_col;
