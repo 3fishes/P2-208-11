@@ -9,7 +9,8 @@ for i=1:nums
    for j = rows:-1:1
        for k = cols:-1:1
         grid(j,k).agents = rand(1,nums);  
-        grid(j,k).convinced = avg;%  
+        grid(j,k).convinced = avg;%
+        grid(j,k).discovered = 0;
        end%cols
    end %rows
    node.grid = grid;

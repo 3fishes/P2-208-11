@@ -19,7 +19,7 @@ for i = 1: rows
 end
 
 %% Create Agents
-A = createAgents(3;
+A = createAgents(3);
 
 %% Simulate!
 plotter(maingrid);
