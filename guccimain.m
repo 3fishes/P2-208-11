@@ -31,13 +31,12 @@ plotter(maingrid, Agents);
 %% Simulate
 for time = 0:inc:maxtime-1
     avg = averagetaker(maingrid);
-    maingrid = RecalcOpinions(maingrid, Agents, 1);
     choice = DecisionFunction(avg,InitialOpinion, Goal, CurrentOpinion, maxtime, time);
     if (choice == 1)
         Agents = scatter(Agents);
     elseif (choice == 0)
         Agents = agentDeploy(Agents);
     end% End of If statement
-    
-    plotter(maingrid, Agents);     
+        
+    maingrid = RecalcOpinions(maingrid, Agents, 1);
 end %End of time
