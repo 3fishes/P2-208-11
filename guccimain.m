@@ -40,3 +40,5 @@ for time = 0:inc:maxtime-1
         
     maingrid = RecalcOpinions(maingrid, Agents, 1);
 end %End of time
+disp(InitialOpinion);
+disp(avg);
