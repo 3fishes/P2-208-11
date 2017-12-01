@@ -63,6 +63,6 @@ for h = 1:blk(1)
     end
 end
 if plot
-    plotter(maingrid); %send to plot
+    plotter(maingrid, A); %send to plot
 end
 end % func

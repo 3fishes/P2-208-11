@@ -6,6 +6,8 @@ clc;
 %% Declare variables
 global rows
 global cols
+global agentnum
+agentnum = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 rows = 5;
 cols = 5;
 nums = 3;     % number of agents deployed
@@ -25,7 +27,7 @@ end
 InitialOpinion = averagetaker(maingrid);
 CurrentOpinion = InitialOpinion;
 Agents = createAgents(nums,InitialOpinion);
-plotter(maingrid);
+plotter(maingrid, Agents);
 %% Simulate
 for time = 0:inc:maxtime-1
     avg = averagetaker(maingrid);
