@@ -21,11 +21,21 @@ for i = 1: rows
         maingrid(i,j) = node;
     end
 end
-%% Initialise Agents
+%% Initialise
 InitialOpinion = averagetaker(maingrid);
 CurrentOpinion = InitialOpinion;
 Agents = createAgents(nums,InitialOpinion);
+
+
+
+plotter(maingrid);
+%% Simulate
 % for time = 0:inc:maxtime-1
-%  maingrid = RecalcOpinions(maingrid, 1,1, 1);
-%  avg = averagetaker(maingrid);
-%  end %time
+% avg = averagetaker(maingrid);
+% Decide Agent movements
+% If explore: Explore
+% If convince: Deploy
+% maingrid = RecalcOpinions(maingrid, 1,1, 1);
+% end time
+
+
