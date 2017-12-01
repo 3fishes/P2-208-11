@@ -10,10 +10,10 @@ global agentnum
 agentnum = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 rows = 5;
 cols = 5;
-nums = 3;     % number of agents deployed
-maxtime = 60; % number of iterations
-inc = 10;     % minutes per iteration
-Goal = 60;    % final avg opin goal
+nums = 5;     % number of agents deployed
+maxtime = 180; % number of iterations
+inc = 5;     % minutes per iteration
+Goal = 100;    % final avg opin goal
 %% Initialize Main Grid, Randomly (For now)
 for i = 1: rows
     for j = 1 : cols
