@@ -6,7 +6,7 @@ ag = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 i = i(randperm(length(i)));
 taken = zeros(length(i),2);
 for j = 1:length(i)
-    disp(ag(i(j)));
+    %disp(ag(i(j)));
     curragents = Agents.(ag(i(j)));
     for k=rows:-1:1
         for l=cols:-1:1
