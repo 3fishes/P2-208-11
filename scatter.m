@@ -4,8 +4,8 @@ function [Agents] = scatter (Agents)
     for i = 1:numel(fieldnames(A))
         
         while (grid(j,k).discovered == 1)
-        j = round(rand()*rows);
-        k = round(rand()*cols);
+        j = 1 + round(rand()*(rows-1));
+        k = 1 + round(rand()*(cols-1));
         
             if (grid(j,k).discovered == 0)
             A.(agentnum(i)).location_row = j;
