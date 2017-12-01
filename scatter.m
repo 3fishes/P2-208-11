@@ -6,11 +6,11 @@ function [Agents] = scatter (Agents)
         j = 1 + round(rand()*(rows-1));
         k = 1 + round(rand()*(cols-1));
         
-        while (grid(j,k).discovered == 1)
+        while (A.(agentnum(i).grid(j,k).discovered == 1)
         j = 1 + round(rand()*(rows-1));
         k = 1 + round(rand()*(cols-1));
         
-            if (grid(j,k).discovered == 0)
+            if (A.(agentnum(i).grid(j,k).discovered == 0)
             A.(agentnum(i)).location_row = j;
             A.(agentnum(i)).location_col = k;
             end% End of If statement
