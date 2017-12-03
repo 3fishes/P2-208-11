@@ -19,7 +19,7 @@ function [summed,avg] = plotter(maingrid, A)
         plot3(col, row, 100, 'ro');
     end
     axis([1 cols 1 rows 0 100]);
-    zlabel("Opinion")
+    axistitle("bob
     hold off;
     avg = summed /(rows*cols);
     %colorbar;
