@@ -25,7 +25,7 @@ for i = 1: rows
 end
 %% Initialise
 InitialOpinion = averagetaker(maingrid);
-fprintf("The initial opinion of the group was: %d\n",InitialOpinion);
+fprintf("The initial opinion of the group was: %f\n",InitialOpinion);
 CurrentOpinion = InitialOpinion;
 Agents = createAgents(nums,InitialOpinion);
 plotter(maingrid, Agents);
@@ -42,4 +42,4 @@ for time = 0:inc:maxtime-1
     maingrid = RecalcOpinions(maingrid, Agents, 1);
 end %End of time
 fo = averagetaker(maingrid);
-fprintf("The final opinion of the group is: %d\n",fo);
+fprintf("The final opinion of the group is: %f\n",fo);
