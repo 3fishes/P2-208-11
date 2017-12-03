@@ -8,12 +8,12 @@ global rows
 global cols
 global agentnum
 agentnum = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-rows = 5;
-cols = 5;
-nums = 6;     % number of agents deployed
-maxtime = 600; % number of iterations
-inc = 10;     % minutes per iteration
-Goal = 90;    % final avg opin goal
+rows = 10;
+cols = 10;
+nums = 5;       % number of agents deployed
+maxtime = 1000; % amount of time in minutes
+inc = 5;        % minutes per iteration
+Goal = 100;      % final avg opin goal
 %% Initialize Main Grid, Randomly (For now)
 for i = 1: rows
     for j = 1 : cols
@@ -33,12 +33,10 @@ for time = 0:inc:maxtime-1
     avg = averagetaker(maingrid);
     choice = DecisionFunction(avg,InitialOpinion, Goal, CurrentOpinion, maxtime, time);
     if (choice == 1)
-        Agents = scatter(Agents);
+        Agents = scatter(Agents, maingrid);
     elseif (choice == 0)
         Agents = agentDeploy(Agents);
     end% End of If statement
         
     maingrid = RecalcOpinions(maingrid, Agents, 1);
 end %End of time
-disp(InitialOpinion);
-disp(avg);
