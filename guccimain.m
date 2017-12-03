@@ -8,9 +8,9 @@ global rows
 global cols
 global agentnum
 agentnum = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-rows = 5;
-cols = 5;
-nums = 6;       % number of agents deployed
+rows = 10;
+cols = 10;
+nums = 3;       % number of agents deployed
 maxtime = 600; % amount of time in minutes
 inc = 10;        % minutes per iteration
 Goal = 90;      % final avg opin goal
@@ -25,6 +25,7 @@ for i = 1: rows
 end
 %% Initialise
 InitialOpinion = averagetaker(maingrid);
+fprintf("The initial opinion of the group was: %d\n",InitialOpinion);
 CurrentOpinion = InitialOpinion;
 Agents = createAgents(nums,InitialOpinion);
 plotter(maingrid, Agents);
@@ -40,3 +41,5 @@ for time = 0:inc:maxtime-1
         
     maingrid = RecalcOpinions(maingrid, Agents, 1);
 end %End of time
+fo = averagetaker(maingrid);
+fprintf("The final opinion of the group is: %d\n",fo);
