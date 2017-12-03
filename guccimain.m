@@ -10,7 +10,7 @@ global agentnum
 agentnum = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 rows = 10;
 cols = 10;
-nums = 5;       % number of agents deployed
+nums = 5;       % number of agents deployed 
 maxtime = 600; % amount of time in minutes
 inc = 10;        % minutes per iteration
 Goal = 90;      % final avg opin goal
