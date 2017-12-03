@@ -10,14 +10,14 @@ global agentnum
 agentnum = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 rows = 10;
 cols = 10;
-nums = 3;       % number of agents deployed
+nums = 5;       % number of agents deployed
 maxtime = 600; % amount of time in minutes
 inc = 10;        % minutes per iteration
 Goal = 90;      % final avg opin goal
 %% Initialize Main Grid, Randomly (For now)
 for i = 1: rows
     for j = 1 : cols
-        node.opin = rand*100;
+        node.opin = 20+rand*60;
         node.agents = rand(1,nums);
         node.stub = mean(node.agents);
         maingrid(i,j) = node;
