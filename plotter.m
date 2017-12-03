@@ -16,7 +16,7 @@ function [summed,avg] = plotter(maingrid, A)
     for i= 1:numel(fieldnames(A))
         row = A.(agentnum(i)).location_row;
         col = A.(agentnum(i)).location_col;
-        plot3(col, row, 100, 'ko');
+        plot3(col, row, 100, 'ro');
     end
     axis([1 cols 1 rows 0 100]);
     hold off;

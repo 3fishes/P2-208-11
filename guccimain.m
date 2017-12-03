@@ -10,9 +10,9 @@ global agentnum
 agentnum = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 rows = 10;
 cols = 10;
-nums = 3;       % number of agents deployed
-maxtime = 600; % amount of time in minutes
-inc = 10;        % minutes per iteration
+nums = 5;       % number of agents deployed
+maxtime = 600;  % amount of time in minutes
+inc = 10;       % minutes per iteration
 Goal = 90;      % final avg opin goal
 %% Initialize Main Grid, Randomly (For now)
 for i = 1: rows
@@ -42,4 +42,4 @@ for time = 0:inc:maxtime-1
     maingrid = RecalcOpinions(maingrid, Agents, 1);
 end %End of time
 fo = averagetaker(maingrid);
-fprintf("The final opinion of the group is: %f\n",fo);
+fprintf("The final opinion of the group is: %f  \n",fo);
